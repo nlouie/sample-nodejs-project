@@ -58,15 +58,22 @@ npm install
 
 3. Start your Server with `node`
 
-Notice that I created a file, `index.js` under the `src/` folder, as defined in `package.json`
 
 ```shell
-node src/index.js
+npm start
+```
+
+Now you can access your node server from your browser.
+
+```
+localhost:3000
 ```
 
 ## Background info
 
 ### Creating your own NPM project from scratch
+
+Follow this guide and look at the commit history to see how I created this project.
 
 #### Initialize
 
@@ -103,6 +110,43 @@ server.listen(port, hostname, () => {
 
 ```
 
+### Adding Express
+
+Now that we know how to create a basic node application, let's create another project under the, `app`, directory, using Express, a common Javascript framework. We will not longer be using `src/`
+
+#### Install dependencies
+
+```shell
+npm update -g express
+```
+
+```shell
+sudo npm install -g express-generator
+```
+
+#### Create a new project
+
+```shell
+express --view="ejs" app
+```
+
+#### Install its dependencies
+
+```shell
+cd app
+npm install
+```
+
+#### Doing it yourself
+
+You can view and edit your HTML in `app/views/index.ejs`
+
+stylesheets are found `app/public/stylesheets`
+
+Javascript files are found `app/public/javascripts`
+
+Have fun!
+
 ### Model View Controller
 
 A model view controller (MVC) architecture is common in software engineering.
@@ -127,3 +171,4 @@ git push --set-upstream origin my-branch-name
 ### Resources
 
 - https://codeburst.io/node-js-by-example-part-1-668376cd4f96
+- https://closebrace.com/tutorials/2017-03-02/creating-a-simple-restful-web-app-with-nodejs-express-and-mongodb
