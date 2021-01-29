@@ -112,6 +112,18 @@ A view describes how the data is presented
 A controller describes how the data is handled between the model and the view.
 
 
+### Creating a git branch and pushing it
+
+
+You may want to create a branch to save your current work
+
+```
+git checkout -b "my-branch-name"
+git add myfile.txt
+git commit -m "my commit message"
+git push --set-upstream origin my-branch-name
+```
+
 ### Resources
 
 - https://codeburst.io/node-js-by-example-part-1-668376cd4f96
