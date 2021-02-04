@@ -7,5 +7,76 @@
   <body>
     <h1><%= title %></h1>
     <p>Welcome to <%= title %></p>
+    <h2>This is a header</h2>
+    <p>This is a test</p>
+
+    <p id="myTitle"> <%= firstName %> </p>
+
+    <div class="jumbotron text-center">
+      <h1>My First Bootstrap Page</h1>
+      <p>Resize this responsive page to see the effect!</p>
+    </div>
+
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-4">
+          <h3>Column 1</h3>
+          <p>Lorem ipsum dolor..</p>
+        </div>
+        <div class="col-sm-4">
+          <h3>Column 2</h3>
+          <p>Lorem ipsum dolor..</p>
+        </div>
+        <div class="col-sm-4">
+          <h3>Column 3</h3>
+          <p>Lorem ipsum dolor..</p>
+        </div>
+      </div>
+    </div>
+
+    <img id="logo" src="https://st3.depositphotos.com/5906102/14454/v/600/depositphotos_144548047-stock-illustration-crypto-currency-bitcoin-golden-symbol.jpg" />
+ <div id="data" />
+ <script type="text/javascript">
+   var xmlhttp = new XMLHttpRequest();
+   var url = "https://api.coindesk.com/v1/bpi/currentprice.json";
+
+   xmlhttp.onreadystatechange = function() {
+     if (this.readyState == 4  &&  this.status == 200) {
+       var json = JSON.parse(this.responseText);
+       parseJson(json);
+     }
+   };
+
+   xmlhttp.open("GET", url, true);
+   xmlhttp.send();
+
+   function parseJson(json) {
+     var time = "<b>Last Updated : " + json["time"]["updated"] + "</b>";
+     var usdValue = "1 Bitcoin is $" + json["bpi"]["USD"]["rate"];
+     var gbpValue = "1 Bitcoin is &pound;" + json["bpi"]["GBP"]["rate"];
+     var euroValue = "1 Bitcoin is &euro;" + json["bpi"]["EUR"]["rate"];
+     console.log(time);
+     console.log(usdValue);
+     console.log(gbpValue);
+     console.log(euroValue);
+
+     document.getElementById("data").innerHTML = time +
+        "<br /><br />" + usdValue +
+      "<br />" + gbpValue +
+      "<br />" + euroValue;
+}
+</script>
+
   </body>
+
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+  <!-- jQuery library -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+  <!-- Latest compiled JavaScript -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+
 </html>
